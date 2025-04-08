@@ -1,0 +1,11 @@
+{
+  "name": "lecture-2",
+  "version": "1.0.0",
+  "description": "This is React Recap",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "rohan",
+  "license": "ISC"
+}
