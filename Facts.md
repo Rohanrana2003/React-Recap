@@ -1,6 +1,6 @@
 # Facts About React
 
-### 1. React is called library because it is so light and it can work on smaller portions into our code also such as working with react in header component only etc.
+### React is called library because it is so light and it can work on smaller portions into our code also such as working with react in header component only etc.
 
 # Parcel
 
@@ -17,3 +17,7 @@
 - Bundling for diff browsers
 - Compress
 - Error Handling
+
+### JSX is not a part of React. React is seperate and JSX is saperate
+
+### JSX is not HTML inside JavScript. JSX is HTML like structure
