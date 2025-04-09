@@ -1,24 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
-const Header = () => {
-  return (
-    <div className="header">
-      <div className="logo-container">
-        <p className="logo">REACTAURANT</p>
-      </div>
-
-      <div className="nav-items">
-        <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
+import Header from "./components/Header";
+import Body from "./components/Body";
 
 const resData = [
   {
@@ -691,43 +674,6 @@ const resData = [
     widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo",
   },
 ];
-
-const RestaurantCard = ({ resData }) => {
-  const { name, cloudinaryImageId, cuisines, avgRatingString, sla } =
-    resData?.info;
-
-  return (
-    <div className="res-card">
-      <div className="res-img-container">
-        <img
-          className="res-img"
-          src={
-            "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-            cloudinaryImageId
-          }
-          alt="res-image"
-        />
-      </div>
-      <h3>{name}</h3>
-      <p className="cuisines">{cuisines.join(", ")}</p>
-      <p>{avgRatingString}</p>
-      <p>{sla?.deliveryTime} minutes</p>
-    </div>
-  );
-};
-
-const Body = () => {
-  return (
-    <div className="body">
-      <div className="search">Search</div>
-      <div className="res-container">
-        {resData.map((item) => (
-          <RestaurantCard key={item.info.id} resData={item} />
-        ))}
-      </div>
-    </div>
-  );
-};
 
 const AppLayout = () => {
   return (
