@@ -21,3 +21,5 @@
 ### JSX is not a part of React. React is seperate and JSX is saperate
 
 ### JSX is not HTML inside JavScript. JSX is HTML like structure
+
+### Passing Props to a component is just like passing arguments to a JavaSrcipt function.
