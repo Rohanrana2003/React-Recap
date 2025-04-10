@@ -23,3 +23,9 @@
 ### JSX is not HTML inside JavScript. JSX is HTML like structure
 
 ### Passing Props to a component is just like passing arguments to a JavaSrcipt function.
+
+### No dependency Array => useEffect will be called after every Render
+
+### Empty dependency Array => useEffect will be called once after first Render
+
+### If dependency Array is [name]=> useEffect will be called after everytime when name will be updated.

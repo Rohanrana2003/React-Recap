@@ -47,8 +47,20 @@
   height: 150px;
   object-fit: cover;
 }
+.filter{
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
 
 .filter-btn{
+  padding: 5px 20px;
+  border: 1px solid black;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.login-btn{
   padding: 5px 20px;
   border: 1px solid black;
   margin-top: 20px;

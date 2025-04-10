@@ -5,6 +5,9 @@ import Shimmer from "./Shimmer";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
+  const [listOfRestaurantsClone, setListOfRestaurantsClone] = useState([]);
+  const [searchText, setSearchText] = useState("");
+  const [authName, setAuthName] = useState("Login");
 
   useEffect(() => {
     fetchData();
@@ -16,6 +19,9 @@ const Body = () => {
     setListOfRestaurants(
       data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
+    setListOfRestaurantsClone(
+      data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
   };
 
   const filterRestaurants = () => {
@@ -24,22 +30,56 @@ const Body = () => {
     );
   };
 
-  if (listOfRestaurants.length === 0) {
-    return <Shimmer />;
-  }
+  const handleSearch = (e) => {
+    setSearchText(e.target.value);
+
+    setListOfRestaurantsClone(
+      listOfRestaurants.filter((res) =>
+        res.info.name.toLowerCase().includes(e.target.value.toLowerCase())
+      )
+    );
+  };
+
   return (
     <div className="body">
-      <div className="filter">
-        <button className="filter-btn" onClick={filterRestaurants}>
-          {" "}
-          Top Rated Restaurants
-        </button>
+      <div className="body-functions">
+        <div className="search">
+          <input
+            type="search"
+            onChange={handleSearch}
+            value={searchText}
+            placeholder="Search Restaurants"
+          ></input>
+        </div>
+
+        <div className="filter">
+          <button className="filter-btn" onClick={filterRestaurants}>
+            {" "}
+            Top Rated Restaurants
+          </button>
+
+          <button
+            className="login-btn"
+            onClick={() =>
+              authName === "Login"
+                ? setAuthName("Logout")
+                : setAuthName("Login")
+            }
+          >
+            {authName}
+          </button>
+        </div>
       </div>
-      <div className="res-container">
-        {listOfRestaurants?.map((item) => (
-          <RestaurantCard key={item.info.id} resData={item} />
-        ))}
-      </div>
+
+      {listOfRestaurantsClone.length === 0 ? (
+        <Shimmer />
+      ) : (
+        <div className="res-container">
+          {listOfRestaurantsClone?.map((item) => (
+            <RestaurantCard key={item.info.id} resData={item} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
