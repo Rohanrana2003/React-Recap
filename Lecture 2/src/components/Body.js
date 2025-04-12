@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { DATA_URL, resData } from "../utils/constants";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { isOpen } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
 
@@ -9,6 +9,8 @@ const Body = () => {
   const [listOfRestaurantsClone, setListOfRestaurantsClone] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [authName, setAuthName] = useState("Login");
+
+  const OpenedRestaurant = isOpen(RestaurantCard);
 
   useEffect(() => {
     fetchData();
@@ -72,13 +74,17 @@ const Body = () => {
         </div>
       </div>
 
-      {listOfRestaurantsClone.length === 0 ? (
+      {listOfRestaurantsClone && listOfRestaurantsClone.length === 0 ? (
         <Shimmer />
       ) : (
         <div className="res-container">
           {listOfRestaurantsClone?.map((item) => (
             <Link to={"restaurantMenu/" + item.info.id} key={item.info.id}>
-              <RestaurantCard resData={item} />
+              {item.info.isOpen ? (
+                <OpenedRestaurant resData={item} />
+              ) : (
+                <RestaurantCard resData={item} />
+              )}
             </Link>
           ))}
         </div>

@@ -21,6 +21,15 @@ const RestaurantCard = ({ resData }) => {
   );
 };
 
-export const PromotedCard = (res) => {};
+export const isOpen = (RestaurantCard) => {
+  return ({ resData }) => {
+    return (
+      <div>
+        <label>Opened</label>
+        <RestaurantCard resData={resData} />
+      </div>
+    );
+  };
+};
 
 export default RestaurantCard;
