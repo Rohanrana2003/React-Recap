@@ -21,4 +21,6 @@ const RestaurantCard = ({ resData }) => {
   );
 };
 
+export const PromotedCard = (res) => {};
+
 export default RestaurantCard;
