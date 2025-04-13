@@ -8,22 +8,26 @@ import Body from "./components/Body";
 import { BrowserRouter, Routes, Route } from "react-router";
 import RestaurantMenu from "./components/RestaurantMenu";
 import UserContext from "./components/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 const AppLayout = () => {
   return (
-    <UserContext.Provider value={{ logged: "rohan" }}>
-      <div className="app">
-        <Header />
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ logged: "rohan" }}>
+        <div className="app">
+          <Header />
 
-        <Routes>
-          <Route path="/" element={<Body />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/restaurantMenu/:resId" element={<RestaurantMenu />} />
-        </Routes>
-      </div>
-    </UserContext.Provider>
+          <Routes>
+            <Route path="/" element={<Body />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/restaurantMenu/:resId" element={<RestaurantMenu />} />
+          </Routes>
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 
