@@ -31,3 +31,5 @@
 ### If dependency Array is [name]=> useEffect will be called after everytime when name will be updated.
 
 ### When we use <a></a> and href to change between the pages, it will reload the whole page while in <Link></Link> it will change only the necessary components thats why it is fast and make react 's app Single Page App.
+
+### Redux uses Immer.js Library behind the scenes

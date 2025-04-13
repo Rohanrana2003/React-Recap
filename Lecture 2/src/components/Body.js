@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { DATA_URL, resData } from "../utils/constants";
+import { DATA_URL } from "../utils/constants";
 import RestaurantCard, { isOpen } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router";
