@@ -33,3 +33,7 @@
 ### When we use <a></a> and href to change between the pages, it will reload the whole page while in <Link></Link> it will change only the necessary components thats why it is fast and make react 's app Single Page App.
 
 ### Redux uses Immer.js Library behind the scenes
+
+### Testing libraries use JEST behind the scenes
+
+### npm is used for installing packages , npx is used for executing the packages on the go.
