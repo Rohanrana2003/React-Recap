@@ -37,3 +37,5 @@
 ### Testing libraries use JEST behind the scenes
 
 ### npm is used for installing packages , npx is used for executing the packages on the go.
+
+### The API are called 2 times only in development mode, to chech if there is any inconsistency in rendering cycle

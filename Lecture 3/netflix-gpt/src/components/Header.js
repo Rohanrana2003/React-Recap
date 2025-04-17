@@ -4,6 +4,7 @@ import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/Redux/userSlice";
+import { NETFLIX_LOGO } from "../utils/constants";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ const Header = () => {
   const user = useSelector((store) => store.user);
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         const { uid, email, displayName } = user;
         dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
@@ -21,6 +22,9 @@ const Header = () => {
         navigate("/");
       }
     });
+
+    // Unsubscribe when component unmounts
+    return () => unsubscribe();
   }, []);
 
   const handleSignOut = () => {
@@ -36,11 +40,7 @@ const Header = () => {
   };
   return (
     <div className=" z-10 absolute flex justify-between px-24 py-8 bg-gradient-to-b from-black w-full">
-      <img
-        className="w-40"
-        src="https://image.tmdb.org/t/p/w500/wwemzKWzjKYJFfCeiB57q3r4Bcm.svg"
-        alt="logo"
-      />
+      <img className="w-40" src={NETFLIX_LOGO} alt="logo" />
 
       {user && (
         <button
