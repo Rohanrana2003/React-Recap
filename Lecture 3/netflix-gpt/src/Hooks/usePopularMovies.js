@@ -1,18 +1,19 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
 import { options } from "../utils/constants";
 import { useDispatch } from "react-redux";
-import { addNowPlayingMovies } from "../utils/Redux/movieSlice";
+import { addPopularMovies } from "../utils/Redux/movieSlice";
 
-const useNowPlayingMovies = () => {
+const usePopularMovies = () => {
   const dispatch = useDispatch();
 
   const getData = async () => {
     const response = await fetch(
-      "https://api.themoviedb.org/3/movie/now_playing?page=1",
+      "https://api.themoviedb.org/3/movie/popular?page=1",
       options
     );
     const data = await response.json();
-    dispatch(addNowPlayingMovies(data.results));
+    dispatch(addPopularMovies(data.results));
   };
 
   useEffect(() => {
@@ -20,4 +21,4 @@ const useNowPlayingMovies = () => {
   }, []);
 };
 
-export default useNowPlayingMovies;
+export default usePopularMovies;

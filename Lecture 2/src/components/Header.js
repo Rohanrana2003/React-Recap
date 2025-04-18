@@ -3,7 +3,6 @@ import { Link } from "react-router";
 
 const Header = () => {
   const cart = useSelector((store) => store.cart.items);
-  console.log(cart);
 
   return (
     <div className="header">
