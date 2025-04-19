@@ -43,12 +43,17 @@ const Header = () => {
       <img className="w-40" src={NETFLIX_LOGO} alt="logo" />
 
       {user && (
-        <button
-          onClick={handleSignOut}
-          className="bg-red-600 text-white px-3 py-2 border-none outline-none rounded-xl"
-        >
-          Sign Out
-        </button>
+        <div className="flex items-center gap-5">
+          <button className="bg-red-600 text-white px-3 py-2 border-none outline-none rounded-xl">
+            Explore
+          </button>
+          <button
+            onClick={handleSignOut}
+            className="bg-red-600 text-white px-3 py-2 border-none outline-none rounded-xl"
+          >
+            Sign Out
+          </button>
+        </div>
       )}
     </div>
   );
